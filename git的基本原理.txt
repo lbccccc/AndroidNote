@@ -14,7 +14,7 @@
 
 6. HEAD也是引用，但不是branch，他代表现在所处的位置，HEAD不仅可以指向某个commit，也可以指向某个branch比如master，feature1
 
-   ![image-20200630173716135](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200630173716135.png)
+   
 
    #### 基本原理
 
