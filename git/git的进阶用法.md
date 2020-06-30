@@ -39,7 +39,7 @@ rebase的冲突解决方法和merge一样，把git merge --continue 改成 git r
 
    不能用rebase ，因为master上面的东西是不能强行修改的，可以用git revert 【指定的commit哈希值】来撤销，原理是创建一个新的commit，内容是指定commit的所有相反内容
 
-   #### reset
+#### reset
 
    把当前branch指向指定的commit。
 
@@ -52,8 +52,7 @@ rebase的冲突解决方法和merge一样，把git merge --continue 改成 git r
      移动到指定commit，并重置working tree
 
      
-
-     #### reset和checkout的区别
+#### reset和checkout的区别
 
      它们都是移动HEAD，但是checkout移动的时候是自己移动，不带着branch，而reset会带着branch一起移动
 
