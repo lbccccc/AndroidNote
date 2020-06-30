@@ -15,7 +15,7 @@
 6. HEAD也是引用，但不是branch，他代表现在所处的位置，HEAD不仅可以指向某个commit，也可以指向某个branch比如master，feature1
 
 
-   #### 基本原理
+#### 基本原理
 
 7. 每次commit的时候，HEAD会随着新的commit一起移动，如果HEAD还指向了某个branch，他也会带着branch一起移动
 
