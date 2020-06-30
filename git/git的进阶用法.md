@@ -61,7 +61,7 @@ rebase的冲突解决方法和merge一样，把git merge --continue 改成 git r
 
 #### add -i 交互式 add
 
-用法 ： git add -i  主要用于切割当前块，当一次性提交代码量太多的时候，切割多次上传
+用法 ：git add -i  主要用于切割当前块，当一次性提交代码量太多的时候，切割多次上传
 
 #### tag
 
