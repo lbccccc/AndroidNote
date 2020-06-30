@@ -10,9 +10,9 @@
 
 5. master是git默认的branch（可以修改），在clone的时候，把仓库取到本地时默认是master。
 
-   origin 开头的branch 是远端仓库的本地镜像，作用是方便本地查看远端仓库的branch状态，只会在两种情况下更新，1 push成功后会把它所对应的origin branch更新到当前的commit 2 执行pull 或者fetch ，从远端拿到了所有的最新branch状态，所以会更新所有的origin branch
+6. origin 开头的branch 是远端仓库的本地镜像，作用是方便本地查看远端仓库的branch状态，只会在两种情况下更新，1 push成功后会把它所对应的origin branch更新到当前的commit 2 执行pull 或者fetch ，从远端拿到了所有的最新branch状态，所以会更新所有的origin branch
 
-6. HEAD也是引用，但不是branch，他代表现在所处的位置，HEAD不仅可以指向某个commit，也可以指向某个branch比如master，feature1
+7. HEAD也是引用，但不是branch，他代表现在所处的位置，HEAD不仅可以指向某个commit，也可以指向某个branch比如master，feature1
 
 
 #### 基本原理
