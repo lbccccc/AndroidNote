@@ -1,3 +1,2 @@
-# -
-AndroidNote
+# AndroidNote
 ===
