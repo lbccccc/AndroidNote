@@ -56,7 +56,8 @@ rebase的冲突解决方法和merge一样，把git merge --continue 改成 git r
 
      它们都是移动HEAD，但是checkout移动的时候是自己移动，不带着branch，而reset会带着branch一起移动
 
-     ## Feature Branching 和其他常用指令(2)
+
+## Feature Branching 和其他常用指令(2)
 
 #### add -i 交互式 add
 
