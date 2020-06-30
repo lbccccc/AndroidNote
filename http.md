@@ -51,3 +51,16 @@ Content-Lenth：243
 三部分：状态行，Headers，Body
 
 状态行  HTTP version /status code /status message  比如HTTP/1.1 200 ok
+
+### Request Method 请求方法
+
+##### Get
+
+- 用于获取资源
+- 对服务器数据不进行修改
+- 不发生body
+
+对应的Retrofit代码
+
+@GET(" /users/{id}")
+Call<User> getUser(@Path("id") String id, @Query("gender") String gender);
