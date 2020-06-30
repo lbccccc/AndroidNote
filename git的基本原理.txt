@@ -1,4 +1,4 @@
-*** 1：git仓库由一个个commit组成，某些commit上会有一些branch指向他们。
+1：git仓库由一个个commit组成，某些commit上会有一些branch指向他们。
 2：branch的本质是引用。head是一个特殊的引用，始终指向当前位置，位置包括commit和branch。
 3：add指令，把指定内容放进暂存区。
 4：branch与什么时候创建的无关，也和仓库的起点无关，只和它当前指向哪个commit有关。
