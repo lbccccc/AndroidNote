@@ -64,3 +64,151 @@ Content-Lenth：243
 
 @GET(" /users/{id}")
 Call<User> getUser(@Path("id") String id, @Query("gender") String gender);
+  ##### Post
+
+- 用于增加或者修改资源
+- 发送给服务器的内容写在body里
+
+对应的Retrofit代码：
+
+@FormUrlEncoded
+@PUT(" /users/{id}")
+Call<User> updateGender( @Path("id") String id, @Field("gender") String
+gender) ;
+
+##### PUT
+
+- 用于修改资源
+- 发送给服务器的内容写在body里面
+
+对应的Retrofit代码：
+
+@FormUrlEncoded
+@PUT(" /users/{id}")
+Call<User> updateGender( @Path("id") String id, @Field("gender") String
+gender);
+
+##### Delete
+
+- 用于删除资源
+- 不发送body
+
+对应的Retrofit代码：
+
+@DELETE("/users/{id}")
+
+ Call getUser(@Path("id") String id, @Query("gender") String gender);
+
+##### HEAD
+
+- 和GET的使用方法完全相同
+- 和FET的唯一区别在于，返回的相应中没有body
+
+## Status Code 状态码
+
+三位数字，⽤于对响应结果做出类型化描述（如「获取成功」「内容未找到」）
+
+- 1xx：临时性消息。如：100 （继续发送）、101（正在切换协议） 。
+- 2xx：成功。最典型的是 200（OK）、201（创建成功）。 
+- 3xx：重定向。如 301（永久移动）、302（暂时移动）、304（内容未改变）。 
+- 4xx：客户端错误。如 400（客户端请求错误）、401（认证失败）、403（被禁⽌）、404（找 不到内容）。 
+- 5xx：服务器错误。如 500（服务器内部错误）。
+
+##### Header ⾸部 
+
+作⽤：HTTP 消息的 metadata。
+
+##### Host 
+
+⽬标主机。注意：不是在⽹络上⽤于寻址的，⽽是在⽬标服务器上⽤于定位⼦服务器的。
+
+### Content-Type 
+
+指定 Body 的类型。主要有四类：
+
+1. ##### text/html 
+
+   请求 Web ⻚⾯是返回响应的类型，Body 中返回 html ⽂本。格式如下：
+
+HTTP/1.1  200  OK 
+
+Content-Type: text/html; charset=utf-8 
+
+Content-Length: 853   
+
+ <! DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+
+##### 2.x-www-form-urlencoded Web
+
+ ⻚⾯纯⽂本表单的提交⽅式。
+
+name=rengwuxian&gender=male
+
+##### 3.multitype/form-data Web
+
+ ⻚⾯含有⼆进制⽂件时的提交⽅式。
+
+##### 4.application/json , image/jpeg , application/zip ...
+
+ 单项内容（⽂本或⾮⽂本都可以），⽤于 Web Api 的响应或者 POST / PUT 的请求
+
+
+
+### Content-Length
+
+ 指定 Body 的⻓度（字节）。
+
+### Transfer: chunked (分块传输编码 Chunked Transfer Encoding)
+
+⽤于当响应发起时，内容⻓度还没能确定的情况下。和 Content-Length 不同时使⽤。⽤途是尽早给 出响应，减少⽤户等待。
+
+### Location
+
+ 指定重定向的⽬标 URL
+
+### User-Agent 
+
+⽤户代理，即是谁实际发送请求、接受响应的，例如⼿机浏览器、某款⼿机 App。
+
+Range / Accept-Range 
+
+###### 按范围取数据 
+
+Accept-Range: bytes 响应报⽂中出现，表示服务器⽀持按字节来取范围数据 
+
+Range: bytes=-<end> 请求报⽂中出现，表示要取哪段数据 
+
+Content-Range:<start>-<end>/total 响应报⽂中出现，表示发送的是哪段数据
+
+作⽤：断点续传、多线程下载。
+
+### Cache
+
+ 作⽤：在客户端或中间⽹络节点缓存数据，降低从服务器取数据的频率，以提⾼⽹络性能。
+
+
+
+### REST 
+
+REST HTTP 即正确使⽤ HTTP。包括： 
+
+- 使⽤资源的格式来定义 URL 
+- 规范地使⽤ method 来定义⽹络请求操作 
+- 规范地使⽤ status code 来表示响应状态 
+- 其他符合 HTTP 规范的设计准则
+
+
+
+
+
+
+
+
+
+
+
+
