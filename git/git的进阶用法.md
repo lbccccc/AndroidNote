@@ -118,4 +118,4 @@ rebase的冲突解决方法和merge一样，把git merge --continue 改成 git r
 
 两个本地仓库互相clone也是可行的，但是push的时候要记得把远端本地仓库的HEAD detach掉，或者设置远端仓库的 receive.denyCurrentBranch 为ignore或者warm
 
-
+2020.6.30 17:33
