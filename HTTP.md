@@ -204,7 +204,12 @@ REST HTTP 即正确使⽤ HTTP。包括：
 
 
 
+## 错题
 
+1. 第四题：请求行由 method path http版本 三部分组成
+2. 第八题：post方法用于增加或修改资源，请求报文中含有body
+3. 第九题：put不能增加资源，只能修改资源
+4. 第十题：delete方法含有body
 
 
 
