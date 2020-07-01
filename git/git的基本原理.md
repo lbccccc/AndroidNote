@@ -30,3 +30,5 @@
 6. pull的原理 pull和push是相反的，先把所有远端的branch最新的位置更新到本地的origin镜像 ，然后要到达这些branch，本地所缺少的所有commit也取到本地 最后把origin 镜像的内容合并到当前的branch
 
 7. merge的原理  把当前commit和指定commit（可以用哈希值指定，也可以用直接或者间接指向它的引用指定，比如master或者HEAD）进行合并，然后创建一个新的commit
+
+2020.6.30 17:05
