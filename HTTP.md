@@ -39,12 +39,13 @@ http://hencoder.com/user?gender=male
 请求行的格式为     方法/路径/HTTP version  比如 GET/users HTTP/1.1
 
 Headers 也分为三部分  Host ，Content-Type ，Content-Lenth  比如  
-
+```
 Host ：api.github.com
 
 Content-Type ：text/plain
 
 Content-Lenth：243
+```
 
 ##### 响应报文
 
@@ -61,44 +62,44 @@ Content-Lenth：243
 - 不发生body
 
 对应的Retrofit代码
-
+```
 @GET(" /users/{id}")
 Call<User> getUser(@Path("id") String id, @Query("gender") String gender);
   ##### Post
-
+```
 - 用于增加或者修改资源
 - 发送给服务器的内容写在body里
 
 对应的Retrofit代码：
-
+```
 @FormUrlEncoded
 @PUT(" /users/{id}")
 Call<User> updateGender( @Path("id") String id, @Field("gender") String
 gender) ;
-
+```
 ##### PUT
 
 - 用于修改资源
 - 发送给服务器的内容写在body里面
 
 对应的Retrofit代码：
-
+```
 @FormUrlEncoded
 @PUT(" /users/{id}")
 Call<User> updateGender( @Path("id") String id, @Field("gender") String
 gender);
-
+```
 ##### Delete
 
 - 用于删除资源
 - 不发送body
 
 对应的Retrofit代码：
-
+```
 @DELETE("/users/{id}")
 
  Call getUser(@Path("id") String id, @Query("gender") String gender);
-
+```
 ##### HEAD
 
 - 和GET的使用方法完全相同
@@ -129,7 +130,7 @@ gender);
 1. ##### text/html 
 
    请求 Web ⻚⾯是返回响应的类型，Body 中返回 html ⽂本。格式如下：
-
+```
 HTTP/1.1  200  OK 
 
 Content-Type: text/html; charset=utf-8 
@@ -141,7 +142,7 @@ Content-Length: 853
 
 <head>
 <meta charset="utf-8">
-
+```
 ##### 2.x-www-form-urlencoded Web
 
  ⻚⾯纯⽂本表单的提交⽅式。
