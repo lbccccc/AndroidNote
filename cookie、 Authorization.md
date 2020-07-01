@@ -1,4 +1,3 @@
-
 # HTTP中确认授权（或登录）的两种方式
 
 1. 通过Cookie
@@ -40,7 +39,7 @@
 
 -  bearer token的获取⽅式：通过 OAuth2 的授权流程 
 
-- OAuth2 的流程：
+- ###### OAuth2 的流程：
 
   1. 第三⽅⽹站向授权⽅⽹站申请第三⽅授权合作，拿到 client id 和 client secret 
   2. ⽤户在使⽤第三⽅⽹站时，点击「通过 XX (如 GitHub) 授权」按钮，第三⽅⽹站将⻚⾯跳 转到授权⽅⽹站，并传⼊ client id 作为⾃⼰的身份标识 
@@ -52,7 +51,7 @@
 
 - 为什么 OAuth 要引⼊ Authorization code，并需要申请授权的第三⽅将 Authorization code 发 送回⾃⼰的服务器，再从服务器来获取 access token，⽽不是直接返回 access token ？这样复 杂的流程意义何在？ 为了安全。OAuth 不强制授权流程必须使⽤ HTTPS，因此需要保证当通信 路径中存在窃听者时，依然具有⾜够⾼的安全性。
 
-- 第三⽅ App 通过微信登录的流程，也是⼀个 OAuth2 流程：
+- ###### 第三⽅ App 通过微信登录的流程，也是⼀个 OAuth2 流程：
 
   1. 第三⽅ App 向腾讯申请第三⽅授权合作，拿到 client id 和 client secret 
   2. ⽤户在使⽤第三⽅ App 时，点击「通过微信登录」，第三⽅ App 将使⽤微信 SDK 跳转到 微信，并传⼊⾃⼰的 client id 作为⾃⼰的身份标识 
