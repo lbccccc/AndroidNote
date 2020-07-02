@@ -56,12 +56,16 @@ ServiceMethod<Object, Object> serviceMethod =
 
 #### 2.OkHttpCall 的创建:
 
-```OkHttpCall<0bject> okHttpCall = new OkHttpCall<> ( serviceMethod, args ) ;```
+```
+OkHttpCall<0bject> okHttpCall = new OkHttpCall<> ( serviceMethod, args ) ;
+```
 okHttpCall是retrofit2.call 的子类。这行代码负责将ServiceMethod封装进一个retrofit2.Call对象;而这个对象可以在需要的时候(例如它的engueue() 方法被调用的时候，利用ServiceMethod中包含的信息来创建一个okhttp3.Call 对象，并调用这个okhttp3.Call对象来进行网络请求的发起，然后对结果进行预处理(如类型转换)。
 
 #### 3.adapt() 方法:
 
-```return serviceMethod. adapt ( okHttpCall);```
+```
+return serviceMethod. adapt ( okHttpCall);
+```
 这个方法会使用ServiceMethod中的callAdapter对象来把okHttpCall对象进行转换，生成一个新的retrofit2.call对象，在这个新的Call 对象中，后台线程发起的请求，会在相应返回后，从主线程中调用回调方法，实现线程的自动切换。
 另外，这个方法不止可以生成新的retrofit2.call 对象,也可以生成别的类型对象，例如RxJava的Obervable ，来让Retrofit可以和RxJava结合使用。
 
