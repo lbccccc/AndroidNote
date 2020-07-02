@@ -93,6 +93,8 @@ HTTP over SSL 的简称，即⼯作在 SSL （或 TLS）上的 HTTP。其实就�
 7. 服务器通知：将使⽤加密通信
 8. 服务器发送：Finished
 
+HTTP没有连接，连接一般是指TCP连接和TLS连接（HTTPS的S就是TLS）
+
 ## 错题
 * 十六题 HTTPS连接的过程中证书的作用是让客户端确信和自己通信的对象确实是自己所认为的对象
 
