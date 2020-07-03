@@ -1,1 +1,73 @@
 
+# 绘制（一）
+
+### 绘制的基本要素：
+
+- 重写 `onDraw()`
+
+- 使用 Canvas 来绘制
+
+- 使用 Paint 来配置
+
+- 坐标系的y轴是上负下正
+
+- 尺寸单位是像素，而不是 dp。转换方式：
+
+  ```
+  public static float dp2px(float dp) {
+  ```
+
+  ```
+          return  TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
+  ```
+
+  ```
+                  Resources.getSystem().getDisplayMetrics());
+  ```
+
+  ```
+      }
+  ```
+
+### Path 的方向以及封闭图形的内外判断：
+
+从圆内的一点作射线
+
+- Winding： 如果方向相反的穿插次数相等则为内部，不等则为外部：
+
+  
+
+- Even Odd：不考虑方向。穿插奇数次则为内部，偶数次则为外部：
+
+如果判定为外部则不画
+
+### PathMeasure
+
+把 Path 对象填入，用于对 Path 做针对性的计算（例如图形周长）。
+
+### 图形一：仪表盘
+
+- 用 drawArc() 绘制弧形
+- 三角函数的计算 横向的位移是 cos，纵向的位移是 sin
+- PathDashPathEffect
+  - 加上 PathEffect 之后，就只绘制 effect，而不绘制原图形。所以需要弧线和刻度分别绘制，一共两次。
+  - dash 的方向
+  - advance 计算
+
+### 图形二：饼图
+
+- 用 drawArc() 绘制扇形
+- 用 Canvas.translate() 来移动扇形，并用 Canvas.save() 和 Canvas.restore() 来保存和恢复位置
+- 用三角函数 cos 和 sin 来计算偏移
+
+### 图形三：圆形图像
+
+- Xfermode：
+  - 为什么要 Xfermode？为了把多次绘制进行「合成」，例如蒙版效果：用 A 的形状和 B 的图案
+  - 怎么做？
+    - Canvs.saveLayer() 把绘制区域拉到单独的离屏缓冲里
+    - 绘制 A 图形
+    - 用 Paint.setXfermode() 设置 Xfermode
+    - 绘制 B 图形
+    - 用 Paint.setXfermode(null) 恢复 Xfermode
+    - 用 Canvas.re
