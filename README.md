@@ -16,12 +16,15 @@
 
  ## 自定义View
 
-- #### 颜色
+- ### Paint
 
-  - [基本绘制(Canvas第一层处理)](自定义View/基本绘制(Canvas第一层处理).md)
-  - [shader(Canvas第一层处理)](自定义View/shader(Canvas第一层处理).md)
-  - [setColorFilter(Canvas对颜色第二层处理)](自定义View/setColorFilter(Canvas对颜色第二层处理).md)
-  - [Xfermode（Canvas第三层)](自定义View/Xfermode(Canvas第三层).md)
+  - ##### 颜色
 
-- 效果
-  - [效果类及初始化类](自定义View/效果类及初始化类.md)
+    - [基本绘制(Canvas第一层处理)](自定义View/基本绘制(Canvas第一层处理).md)
+    - [shader(Canvas第一层处理)](自定义View/shader(Canvas第一层处理).md)
+    - [setColorFilter(Canvas对颜色第二层处理)](自定义View/setColorFilter(Canvas对颜色第二层处理).md)
+    - [Xfermode（Canvas第三层)](自定义View/Xfermode(Canvas第三层).md)
+
+  - 效果
+
+    - [效果类及初始化类](自定义View/效果类及初始化类.md)
