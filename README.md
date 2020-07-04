@@ -10,3 +10,9 @@
  * [编码与加密](网络/编码与加密.md)
  * [Retrofit源码总结](网络/Retrofit源码总结.md)
  * [OKHttp源码总结](网络/OKHttp源码总结.md)
+ 
+ ## 自定义View
+  * [自定义View/基本绘制(Canvas第一层处理)](自定义View/基本绘制(Canvas第一层处理).md)
+  * [自定义View/shader(Canvas第一层处理)](自定义View/shader(Canvas第一层处理).md)
+  * [自定义View/setColorFilter(Canvas对颜色第二层处理)](自定义View/setColorFilter(Canvas对颜色第二层处理).md)
+  * [自定义View/Xfermode（Canvas第三层)](自定义View/Xfermode（Canvas第三层).md)
