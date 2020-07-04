@@ -25,6 +25,6 @@
     - [setColorFilter(Canvas对颜色第二层处理)](自定义View/setColorFilter(Canvas对颜色第二层处理).md)
     - [Xfermode（Canvas第三层)](自定义View/Xfermode(Canvas第三层).md)
 
-  - 效果
+  - ##### 效果
 
     - [效果类及初始化类](自定义View/效果类及初始化类.md)
