@@ -1,4 +1,4 @@
-## shader(着色器)
+## shader(着色器)        图片上传了用不了，有毒
 
  setShader(Shader shader) 设置 Shader 除了直接设置颜色， Paint 还可以使用 Shader 。
 
