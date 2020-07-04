@@ -106,7 +106,7 @@ Path 有两类方法，一类是直接描述路径的，另一类是辅助的设
 
 这一组和第一组 addXxx() 方法的区别在于，第一组是添加的完整封闭图形（除了 addPath() ），而这一组添加的只是一条线。
 
-##### ```lineTo(oat x, oat y) / rLineTo(oat x, oat y)```
+- ##### ```lineTo(oat x, oat y) / rLineTo(oat x, oat y)```
 
  画直线 从当前位置向目标位置画一条直线， x 和 y 是目标位置的坐标。这两个方法的区 别是， ```lineTo(x, y)``` 的参数是绝对坐标，而``` rLineTo(x, y)``` 的参数是相对当前 位置的相对坐标 （前缀 r 指的就是 relatively 「相对地」)。
 
@@ -118,33 +118,33 @@ path.lineTo(100, 100); // 由当前位置 (0, 0) 向 (100, 100) 画一条直线
 path.rLineTo(100, 0); // 由当前位置 (100, 100) 向正右方 100 像素的位置画
 ```
 
-##### ```quadTo(oat x1, oat y1, oat x2, oat y2) / rQuadTo(oat dx1, oat dy1, oat dx2, oat dy2)``` 画二次贝塞尔曲线
+- ##### ```quadTo(oat x1, oat y1, oat x2, oat y2) / rQuadTo(oat dx1, oat dy1, oat dx2, oat dy2)``` 画二次贝塞尔曲线
 
 这条二次贝塞尔曲线的起点就是当前位置，而参数中的 x1 , y1 和 x2 , y2 则分别 是控制点和终点的坐标。和 rLineTo(x, y) 同 理，rQuadTo(dx1, dy1, dx2, dy2) 的参数也是相对坐标
 
 > 贝塞尔曲线：贝塞尔曲线是几何上的一种曲线。它通过起点、控制点和终点来 描述一条曲线，主要用于计算机图形学。它可以绘制很多圆润又好看的图形一般情况下，贝塞尔曲线并没有什么用处，只在少数场景 下绘制一些特殊图形的时候才会用到.
 
-##### ```cubicTo(float x1, float y1,float x2, float y2, float x3, float y3) / rCubicTo(float x1, float y1, float x2, float y2, float x3, float y3) ```画三次贝塞 尔曲线
+- ##### ```cubicTo(float x1, float y1,float x2, float y2, float x3, float y3) / rCubicTo(float x1, float y1, float x2, float y2, float x3, float y3) ```画三次贝塞 尔曲线
 
  和上面这个 quadTo() rQuadTo() 的二次贝塞尔曲线同理，cubicTo() 和 rCubicTo() 是三次贝塞尔曲线，
 
-##### ```moveTo(float x, float y) / rMoveTo(float x, float y)``` 移动到目标位置
+- ##### ```moveTo(float x, float y) / rMoveTo(float x, float y)``` 移动到目标位置
 
 不论是直线还是贝塞尔曲线，都是以当前位置作为起点，而不能指定起点。但你可 以通过 moveTo(x, y) 或 rMoveTo() 来改变当前位置，从而间接地设置这些方法 的起点。
 
-##### ```arcTo(RectF oval, float startAngle, float sweepAngle, boolean forceMoveTo) / arcTo(float left, float top, float right, float bottom, float startAngle, float sweepAngle, boolean forceMoveTo) / arcTo(RectF oval, float startAngle, float sweepAngle)``` 画弧形
+- ##### ```arcTo(RectF oval, float startAngle, float sweepAngle, boolean forceMoveTo) / arcTo(float left, float top, float right, float bottom, float startAngle, float sweepAngle, boolean forceMoveTo) / arcTo(RectF oval, float startAngle, float sweepAngle)``` 画弧形
 
 这个方法和 Canvas.drawArc() 比起来，少了一个参数 useCenter ，而多了一个 参数 forceMoveTo 。 少了 useCenter ，是因为 arcTo() 只用来画弧形而不画扇形，所以不再需要 useCenter 参数；而多出来的这个 forceMoveTo 参数的意思是，绘制是要「抬一 下笔移动过去」，还是「直接拖着笔过去」，区别在于是否留下移动的痕迹。
 
 
 
-##### ```addArc(float left, float top, float right, float bottom, float startAngle, float sweepAngle) / addArc(RectF oval, float startAngle, float sweepAngle)```
+- ##### ```addArc(float left, float top, float right, float bottom, float startAngle, float sweepAngle) / addArc(RectF oval, float startAngle, float sweepAngle)```
 
 又是一个弧形的方法。一个叫 arcTo ，一个叫 addArc() ，都是弧形，区别在哪 里？其实很简单： addArc() 只是一个直接使用了 forceMoveTo = true 的简化版 arcTo() 。
 
 
 
-##### close() 封闭当前子图形
+- ##### close() 封闭当前子图形
 
 它的作用是把当前的子图形封闭，即由当前位置向当前子图形的起点绘制一条直 线。
 
@@ -152,7 +152,7 @@ path.rLineTo(100, 0); // 由当前位置 (100, 100) 向正右方 100 像素的�
 
 
 
-## Path 方法第二类：辅助的设置或计算
+- ## Path 方法第二类：辅助的设置或计算
 
 
 
@@ -173,13 +173,13 @@ FillType 的取值有四 个：
 
 后面的两个带有 INVERSE_ 的，是前两个的反色版本,所以只要把前两个，即 EVEN_ODD 和 WINDING ，搞明白就可以了。
 
-### EVEN_ODD
+- ### EVEN_ODD
 
  即 even-odd rule （奇偶原则）：对于平面中的任意一点，向任意方向射出一条射 线，这条射线和图形相交的次数（相交才算，相切不算哦）如果是奇数，则这个点 被认为在图形内部，是要被涂色的区域；如果是偶数，则这个点被认为在图形外 部，是不被涂色的区域。所以两个圆相交的部位不会被涂色
 
 
 
-### WINDING 
+- ### WINDING 
 
 即 non-zero winding rule （非零环绕数原则）：首先，它需要你图形中的所有线条 都是有绘制方向的： 然后，同样是从平面中的点向任意方向射出一条射线，但计算规则不一样：以 0 为 初始值，对于射线和图形的所有交点，遇到每个顺时针的交点（图形从射线的左边 向右穿过）把结果加 1，遇到每个逆时针的交点（图形从射线的右边向左穿过）把 结果减 1，最终把所有的交点都算上，得到的结果如果不是 0，则认为这个点在图形 内部，是要被涂色的区域；如果是 0，则认为这个点在图形外部，是不被涂色的区 域。
 
@@ -189,7 +189,7 @@ FillType 的取值有四 个：
 
 
 
-## ```drawBitmap(Bitmap bitmap, float left, float top, Paint paint)``` 画 Bitmap
+- ## ```drawBitmap(Bitmap bitmap, float left, float top, Paint paint)``` 画 Bitmap
 
 绘制 Bitmap 对象，也就是把这个 Bitmap 中的像素内容贴过来。其中 left 和 top 是要把 bitmap 绘制到的位置坐标。
 
@@ -197,7 +197,7 @@ FillType 的取值有四 个：
 
 
 
-## ```drawText(String text, float x, float y, Paint paint)``` 绘制文字
+- ## ```drawText(String text, float x, float y, Paint paint)``` 绘制文字
 
  界面里所有的显示内容，都是绘制出来的，包括文字。 drawText() 这个方法就是 用来绘制文字的。参数 text 是用来绘制的字符串，x 和 y 是绘制的起点坐标。
 
