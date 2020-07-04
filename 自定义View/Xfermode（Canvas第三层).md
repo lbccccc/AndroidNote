@@ -61,3 +61,5 @@ canvas.restoreToCount(saved);//恢复
 
 
 到此为止，前面讲的就是 Paint 的第一类 API——关于颜色的三层设置：直接 设置颜色的 API 用来给图形和文字设置颜色； setColorFilter() 用来基于颜色进 行过滤处理； setXfermode() 用来处理源图像和 View 已有内容的关系。
+
+2020 7.4 16:06
