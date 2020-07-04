@@ -10,7 +10,7 @@
 
 构造方法：LinearGradient(float x0, float y0, float x1, float y1, int color0, int color1, Shader.TileMode)
 
-![image-20200704145404273](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704145404273.png)
+![image-20200704145404273](自定义View/截图/image-20200704145404273.png)
 
 注意：在设置了 Shader 的情况下， Paint.setColor/ARGB() 所设置的颜色 就不再起作用。
 
