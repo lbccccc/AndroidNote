@@ -33,3 +33,7 @@
 
     - [文字的绘制](自定义View/文字的绘制.md)
 
+- ### Canvas
+
+  - [Canvas 对绘制的辅助](自定义View/Canvas 对绘制的辅助.md)
+
