@@ -207,7 +207,22 @@ canvas.drawText(text, 200, 100, paint);
 
 通过 ```Paint.setTextSize(textSize)``` ，可以设置文字的大小。
 
+#### 如果想调整图片的大小，可以自定义设置以下函数
 
+```
+fun imageScale(bitmap: Bitmap,newWidth :Float,newHeight :Float):Bitmap{
+         val Width = bitmap.width
+         val Height = bitmap.height
+         scaleX =newWidth/Width
+         scaleY =newHeight/Height
+
+         val matrix = Matrix().apply {
+             postScale(scaleX,scaleY)
+         }
+         val newBitmap = Bitmap.createBitmap(bitmap,0,0,Width,Height,matrix,true)
+         return newBitmap
+    }
+```
 
 
 
