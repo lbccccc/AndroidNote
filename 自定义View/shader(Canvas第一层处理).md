@@ -6,11 +6,11 @@
 
 - #####  LinearGradient 线性渐变
 
-   设置两个点和两种颜色，以这两个点作为端点，使用两种颜色的渐变来绘制颜色。 就像这样：
+  设置两个点和两种颜色，以这两个点作为端点，使用两种颜色的渐变来绘制颜色。 就像这样：
 
 构造方法：LinearGradient(float x0, float y0, float x1, float y1, int color0, int color1, Shader.TileMode)
 
-![](自定义View/截图/image-20200704145404273.png)
+![](https://wx3.sinaimg.cn/large/52eb2279ly1fig6dq7wudj206l06875e.jpg)
 
 注意：在设置了 Shader 的情况下， Paint.setColor/ARGB() 所设置的颜色 就不再起作用。
 
@@ -24,19 +24,21 @@ tile ：端点范围之外的着色规则，类型是 TileMode 。TileMode 一�
 
 CLAMP:
 
-![image-20200704145700698](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704145700698.png)
+![image-20200704145700698](https://wx3.sinaimg.cn/large/52eb2279ly1fig6e7vbemj20cj090goh.jpg)
 
-![image-20200704145711474](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704145711474.png)
+MIRRO：
+
+![mirro](https://wx3.sinaimg.cn/large/52eb2279ly1fig6egtxw5j20ck08xjv6.jpg)
 
 REPEAT:
 
-![image-20200704145729747](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704145729747.png)
+![image-20200704145729747](https://wx3.sinaimg.cn/large/52eb2279ly1fig6em2wabj20ck08xjvo.jpg)
 
 - ### RadialGradient 辐射渐变
 
 辐射渐变很好理解，就是从中心向周围辐射状的渐变。大概是这样：
 
-![image-20200704145850074](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704145850074.png)
+![image-20200704145850074](https://wx3.sinaimg.cn/large/52eb2279ly1fig6ewf1o5j206d066q4a.jpg)
 
 ##### 构造方法：
 
@@ -54,15 +56,21 @@ edgeColor ：辐射边缘的颜色
 
  tileMode ：辐射范围之外的着色模式。
 
-![image-20200704150042539](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704150042539.png)
+CLAMP
 
-![image-20200704150111052](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704150111052.png)
+![image-20200704150042539](https://wx3.sinaimg.cn/large/52eb2279ly1fig6f2jz23j20ck08yach.jpg)
 
-![image-20200704150120178](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704150120178.png)
+MIRRO:
+
+![image-20200704150111052](https://wx3.sinaimg.cn/large/52eb2279ly1fig6fad0cpj20cm09142x.jpg)
+
+REPEAT
+
+![image-20200704150120178](https://wx3.sinaimg.cn/large/52eb2279ly1fig6fflc56j20cl090tdr.jpg)
 
 - ## SweepGradient 扫描渐变
 
-![image-20200704150148291](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704150148291.png)
+![image-20200704150148291](https://wx3.sinaimg.cn/large/52eb2279ly1fig6fmbemdj206u061my4.jpg)
 
 ##### 构造方法： SweepGradient(float cx, float cy, int color0, int color1) 
 
@@ -76,7 +84,7 @@ edgeColor ：辐射边缘的颜色
 
   用 Bitmap 来着色。其实也就是用 Bitmap 的像素来作为图形 或文字的填充。
 
-![image-20200704150454820](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704150454820.png)
+![image-20200704150454820](https://wx3.sinaimg.cn/large/52eb2279ly1fig6fragq2j20lc089djv.jpg)
 
 这个和 Canvas.drawBitmap() 很像，事实上也是一样的效果。如果想绘制圆形的 Bitmap ，就别用 drawBitmap() 了，改用 drawCircle() + BitmapShader 就可以了（其他形状同理）。
 
@@ -94,19 +102,23 @@ tileX：横向的 TileMode
 
  tileY：纵向的 TileMode 。
 
-![image-20200704151027881](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704151027881.png)
+CLAMP:
+
+![image-20200704151027881](https://wx3.sinaimg.cn/large/52eb2279ly1fig6g2l2z3j20ks0chq4w.jpg)
 
 MIRROR
 
 ![image-20200704151048342](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704151048342.png)
 
-![image-20200704151055409](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704151055409.png)
+REPEAT
+
+![image-20200704151055409](https://wx3.sinaimg.cn/large/52eb2279ly1fig6gcxlrfj20kv0ciduo.jpg)
 
 - ## ComposeShader 混合着色器
 
-   所谓混合，就是把两个 Shader 一起使用。
+  所谓混合，就是把两个 Shader 一起使用。
 
-![image-20200704151218786](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704151218786.png)
+![image-20200704151218786](https://wx3.sinaimg.cn/large/52eb2279ly1fig6hbeg7gj20qy08cafn.jpg)
 
 ##### 构造方 法：
 
@@ -115,20 +127,20 @@ ComposeShader(Shader shaderA, Shader shaderB, PorterDuff.Mode mode)
 ##### 参数：
 
 -  shaderA , shaderB ：两个相继使用的 Shader
-- mode : 两个 Shader 的叠加模式，即 shaderA 和 shaderB 应该怎样共同绘制。它 的类型是 PorterDuff.Mode 。
+-  mode : 两个 Shader 的叠加模式，即 shaderA 和 shaderB 应该怎样共同绘制。它 的类型是 PorterDuff.Mode 。
 
 
 
 ###### 注意： PorterDuff.Mode 一共有 17 个，可以分为两类： 1. Alpha 合成 (Alpha Compositing) 2. 混合 (Blending)，具体去看文档
 
-![image-20200704151539323](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704151539323.png)
+![image-20200704151539323](https://wx3.sinaimg.cn/large/52eb2279ly1fig6ia1twgj20ds07tdgs.jpg)
 
 Alpha 合成：
 
-![image-20200704151557486](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704151557486.png)
+![image-20200704151557486](https://wx3.sinaimg.cn/large/52eb2279ly1fig6im3hhcj20o50zt7bj.jpg)
 
 混合合成：
 
-![image-20200704151622339](C:\Users\zl\AppData\Roaming\Typora\typora-user-images\image-20200704151622339.png)
+![image-20200704151622339](https://wx3.sinaimg.cn/large/52eb2279ly1fig6iw04v0j20ny0hzmzj.jpg)
 
 2020.7.4 15:41
