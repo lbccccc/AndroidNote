@@ -43,6 +43,6 @@
 
 - #### 属性动画
 
-  - [PropertyAnimation(1)](自定义View/PropertyAnimation(1).md)
-  - [PropertyAnimation(2)](自定义View/PropertyAnimation(2).md)
+  - [PropertyAnimation(1)-普通属性](自定义View/PropertyAnimation(1).md)
+  - [PropertyAnimation(2)-特殊属性](自定义View/PropertyAnimation(2).md)
 
