@@ -39,10 +39,10 @@
 
 - #### 绘制顺序
 
-  - 	[绘制顺序](自定义View/绘制顺序.md)
+  - [绘制顺序](自定义View/绘制顺序.md)
 
 - #### 属性动画
 
-  - [Property Animation(1)](自定义View/Property Animation（1）.md)
+  - [PropertyAnimation(1)](自定义View/PropertyAnimation(1).md)
   - [PropertyAnimation(2)](自定义View/PropertyAnimation(2).md)
 
