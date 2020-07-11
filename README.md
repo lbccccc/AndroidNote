@@ -46,3 +46,4 @@
   - [PropertyAnimation(1)-普通属性](自定义View/PropertyAnimation(1).md)
   - [PropertyAnimation(2)-特殊属性](自定义View/PropertyAnimation(2).md)
   - [硬件加速的本质及原理](自定义View/硬件加速.md)
+  - [布局的原理](自定义View/布局.md)
