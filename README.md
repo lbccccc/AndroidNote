@@ -49,5 +49,8 @@
   - [布局的原理](自定义View/布局.md)
   - [触摸反馈](自定义View/触摸反馈.md)
 
+- ### [BItmap和Drawable的关系和互相转换](自定义View/BItmap和Drawable的关系.md)
+
  ## Kotlin的一些重要知识
+
  - #### [基本类型](Kotlin的一些重要知识/基本类型.md)
