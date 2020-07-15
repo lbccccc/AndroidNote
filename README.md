@@ -47,7 +47,7 @@
   - [PropertyAnimation(2)-特殊属性](自定义View/PropertyAnimation(2).md)
   - [硬件加速的本质及原理](自定义View/硬件加速.md)
   - [布局的原理](自定义View/布局.md)
-  - [触摸反馈](自定义View/触摸反馈.md)
+  - [触摸反馈](自定义View/简易版触摸反馈基础.md)
 
 - ### Bitmap
 
