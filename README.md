@@ -16,46 +16,52 @@
 
  ## 自定义View
 
-- ### Paint
+- ### 自定义绘制
 
-  - ##### 颜色
+  - #### Paint
 
-    - [基本绘制(Canvas第一层处理)](自定义View/基本绘制(Canvas第一层处理).md)
-    - [shader(Canvas第一层处理)](自定义View/shader(Canvas第一层处理).md)
-    - [setColorFilter(Canvas对颜色第二层处理)](自定义View/setColorFilter(Canvas对颜色第二层处理).md)
-    - [Xfermode（Canvas第三层)](自定义View/Xfermode(Canvas第三层).md)
+    - ##### 颜色
 
-  - ##### 效果
+      - [基本绘制(Canvas第一层处理)](自定义View/基本绘制(Canvas第一层处理).md)
+      - [shader(Canvas第一层处理)](自定义View/shader(Canvas第一层处理).md)
+      - [setColorFilter(Canvas对颜色第二层处理)](自定义View/setColorFilter(Canvas对颜色第二层处理).md)
+      - [Xfermode（Canvas第三层)](自定义View/Xfermode(Canvas第三层).md)
 
-    - [效果类及初始化类](自定义View/效果类及初始化类.md)
+    - ##### 效果
 
-  - ##### 文字
+      - [效果类及初始化类](自定义View/效果类及初始化类.md)
 
-    - [文字的绘制](自定义View/文字的绘制.md)
+    - ##### 文字
 
-- ### Canvas
+      - [文字的绘制](自定义View/文字的绘制.md)
 
-  - [Canvas对绘制的辅助](自定义View/Canvas对绘制的辅助.md)
+  - #### Canvas
 
-- #### 绘制顺序
+    - [Canvas对绘制的辅助](自定义View/Canvas对绘制的辅助.md)
 
-  - [绘制顺序](自定义View/绘制顺序.md)
+  - #### 绘制顺序
 
-- #### 属性动画
+    - [绘制顺序](自定义View/绘制顺序.md)
 
-  - [PropertyAnimation(1)-普通属性](自定义View/PropertyAnimation(1).md)
-  - [PropertyAnimation(2)-特殊属性](自定义View/PropertyAnimation(2).md)
-  - [硬件加速的本质及原理](自定义View/硬件加速.md)
+  - #### 属性动画
+
+    - [PropertyAnimation(1)-普通属性](自定义View/PropertyAnimation(1).md)
+    - [PropertyAnimation(2)-特殊属性](自定义View/PropertyAnimation(2).md)
+    - [硬件加速的本质及原理](自定义View/硬件加速.md)
+
+  - #### Bitmap
+
+    - [BItmap和Drawable的关系和互相转换](自定义View/BItmap和Drawable的关系.md)
+
+- ## 自定义布局
+
   - [简易版布局](自定义View/简易版布局.md)
-  - [简易版触摸反馈基础](自定义View/简易版触摸反馈基础.md)
-
-- ### Bitmap
-
-  - [BItmap和Drawable的关系和互相转换](自定义View/BItmap和Drawable的关系.md)
-- ### 自定义布局
 
   - [自定义布局](自定义View/自定义布局.md)
-- ### 触摸反馈
+
+- ## 触摸反馈
+
+  - [简易版触摸反馈基础](自定义View/简易版触摸反馈基础.md)
 
   - [触摸反馈基础](自定义View/触摸反馈基础.md)
 
