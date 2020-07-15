@@ -52,6 +52,9 @@
 - ### Bitmap
 
   - [BItmap和Drawable的关系和互相转换](自定义View/BItmap和Drawable的关系.md)
+- ### 自定义布局
+
+  - [自定义布局](自定义View/自定义布局.md)
 
  ## Kotlin的一些重要知识
 
