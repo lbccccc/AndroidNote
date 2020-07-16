@@ -62,8 +62,8 @@
 - ## 触摸反馈
 
   - [简易版触摸反馈基础](自定义View/简易版触摸反馈基础.md)
-
   - [触摸反馈基础](自定义View/触摸反馈基础.md)
+  - [GestrueDetector(1)](自定义View/GestrueDetector.md)
 
  ## Kotlin的一些重要知识
 
