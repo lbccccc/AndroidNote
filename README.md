@@ -63,7 +63,7 @@
 
   - [简易版触摸反馈基础](自定义View/简易版触摸反馈基础.md)
   - [触摸反馈基础](自定义View/触摸反馈基础.md)
-  - [GestrueDetector(1)](自定义View/GestrueDetector.md)
+  - [GestrueDetector](自定义View/GestrueDetector.md)
   - [多点触摸](自定义View/多点触摸.md)
   - [Viewgroup触摸反馈](自定义View/viewgroup触摸反馈.md)
 
