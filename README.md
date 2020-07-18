@@ -2,8 +2,8 @@
 
 ## Git
 
-* [git的基本原理](Git/Git的基本原理.md)
-* [git的进阶用法](Git/Git的进阶用法.md)
+* [Git的基本原理](Git/Git的基本原理.md)
+* [Git的进阶用法](Git/Git的进阶用法.md)
 
 ## HTTP
 
