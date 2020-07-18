@@ -68,7 +68,7 @@
   - [Viewgroup触摸反馈](自定义View/viewgroup触摸反馈.md)
   - [拖拽和嵌套滑动](自定义View/拖拽和嵌套滑动.md)
 
- ## Kotlin的一些重要知识
+ ## Kotlin
 
  - #### [基本类型](Kotlin/基本类型.md)
  - #### [多线程及线程同步](Kotlin/多线程及线程同步.md)
