@@ -66,6 +66,7 @@
   - [GestrueDetector](自定义View/GestrueDetector.md)
   - [多点触摸](自定义View/多点触摸.md)
   - [Viewgroup触摸反馈](自定义View/viewgroup触摸反馈.md)
+  - [拖拽和嵌套滑动](自定义View/拖拽和嵌套滑动.md)
 
  ## Kotlin的一些重要知识
 
