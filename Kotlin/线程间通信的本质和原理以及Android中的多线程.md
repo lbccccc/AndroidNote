@@ -34,6 +34,10 @@
   - Looper：负责循环、条件判断和任务执⾏ 
   - Handler：负责任务的定制和线程间传递
 
+- ThreadLocal：
+
+  - 每一个线程对主内存里面的同一个数据有专属于自己的内存区域进行保存和读取，互不影响
+
 - AsyncTask：
 
   - AsyncTask 的内存泄露
@@ -44,15 +48,15 @@
 
     - Java 回收策略：没有被 GC Root 直接或间接持有引⽤的对象，会被回收
 
-       GC Root： 
+      GC Root： 
 
       1. 运⾏中的线程 
-      2.  静态对象 
-      3.  来⾃ native code 中的引⽤
+      2. 静态对象 
+      3. 来⾃ native code 中的引⽤
 
     - 所以： AsyncTask 的内存泄露，其他类型的线程⽅案（Thread、Executor、 HandlerThread）⼀样都有，所以不要忽略它们，或者认为 AsyncTask ⽐别的⽅ 案更危险。并没有。
 
-    -  就算是使⽤ AsyncTask，只要任务的时间不⻓（例如 10 秒之内），那就完全没 必要做防⽌内存泄露的处理。
+    - 就算是使⽤ AsyncTask，只要任务的时间不⻓（例如 10 秒之内），那就完全没 必要做防⽌内存泄露的处理。
 
 ## Service 和 IntentService 
 
