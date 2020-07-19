@@ -74,4 +74,4 @@
  - #### [多线程及线程同步](Kotlin/多线程及线程同步.md)
  - #### [RecyclerView进阶用法](Kotlin/RecyclerView进阶用法.md)
  - #### [GC](Kotlin/GC.md)
- - #### [线程间通信的本质和原理,以及Android中的多线程.md](Kotlin/线程间通信的本质和原理，以及 Android 中 的多线程.md.md)
+ - #### [线程间通信的本质和原理以及Android中的多线程](Kotlin/线程间通信的本质和原理以及Android中的多线程.md)
