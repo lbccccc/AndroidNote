@@ -73,4 +73,4 @@
  - #### [基本类型](Kotlin/基本类型.md)
  - #### [多线程及线程同步](Kotlin/多线程及线程同步.md)
  - #### [RecyclerView进阶用法](Kotlin/RecyclerView进阶用法.md)
- - #### [](Kotlin/GC.md)
+ - #### [GC](Kotlin/GC.md)
