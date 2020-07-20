@@ -72,7 +72,7 @@
 
 - ### 基础
 
-  - ##### [基本类型](Kotlin/基本类型.md)
+  - ##### [基本类型_gettersetter_类型强转](Kotlin/基本类型_gettersetter_类型强转.md)
 
 - ### 进阶
 
