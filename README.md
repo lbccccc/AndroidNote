@@ -92,4 +92,5 @@
 # Gradle
 
 - [Gradle 配置⽂件拆解](Gradle/Gradle配置⽂件拆解.md)
+- [GradlePlugin](Gradle/GradlePlugin.md)
 
