@@ -96,4 +96,4 @@
 
 - [Gradle 配置⽂件拆解](Gradle/Gradle配置⽂件拆解.md)
 - [GradlePlugin](Gradle/GradlePlugin.md)
-
+- [组件化插件化和热更新](Gradle/组件化插件化和热更新.md)
