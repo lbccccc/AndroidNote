@@ -77,6 +77,7 @@
   - [可见性修饰符](Kotlin/可见性修饰符.md)
   - [嵌套函数及命名参数](Kotlin/嵌套函数及命名参数.md)
   - [原生字符串和`Sequence`](Kotlin/原生字符串和`Sequence`.md)
+  - [泛型的协变与逆变](Kotlin/泛型.md)
 
 - ### 进阶
 
