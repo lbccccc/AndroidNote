@@ -78,9 +78,9 @@
   - [嵌套函数及命名参数](Kotlin/嵌套函数及命名参数.md)
   - [原生字符串和`Sequence`](Kotlin/原生字符串和`Sequence`.md)
   - [泛型的协变与逆变](Kotlin/泛型.md)
-  - [协程(1).md](Kotlin/协程(1).md)
-  - [协程(2).md](Kotlin/协程(2).md)
-  - [协程(3).md](Kotlin/协程(3).md)
+  - [协程(1)](Kotlin/协程(1).md)
+  - [协程(2)](Kotlin/协程(2).md)
+  - [协程(3)](Kotlin/协程(3).md)
 
 - ### 进阶
 
