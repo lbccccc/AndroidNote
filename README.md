@@ -80,6 +80,7 @@
   - [泛型的协变与逆变](Kotlin/泛型.md)
   - [协程(1)](Kotlin/协程(1).md)
   - [协程(2)](Kotlin/协程(2).md)
+  - [Lambda表达式](Kotlin/Lambda表达式.md)
 
 - ### 进阶
 
