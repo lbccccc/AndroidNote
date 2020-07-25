@@ -81,6 +81,7 @@
   - [协程(1)](Kotlin/协程(1).md)
   - [协程(2)](Kotlin/协程(2).md)
   - [Lambda表达式](Kotlin/Lambda表达式.md)
+  - [扩展函数和扩展属性](Kotlin/扩展函数和扩展属性.md)
 
 - ### 进阶
 
