@@ -1,0 +1,13 @@
+在⼦线程中更新 UI 不报错的⼏种⽅式
+1. 主线程申请成功后⼦线程申请
+thread子线程前先用主线程更新ui
+2. 在⼦线程中创建 ViewRootImpl
+在thread{}括号里面用looper.prepare()和looper.loop包住更新ui的代码
+3. 利⽤硬件加速机制绕开 requestLayout()
+在硬件加速的⽀持下，如果控件只是经常了 invalidate() ，⽽没有触发
+requestLayout() 是不会 触发 ViewRootImpl#checkThread() 的。
+4. SurfaceView
+Android 中有⼀个控件 SurfaceView ，它可以通过 holder 获得 Canvas 对象，
+可以直接在⼦线程中更新 UI。
+网上那些子线程更新ui都是通过handle来更新
+2020.9.14 13.45
