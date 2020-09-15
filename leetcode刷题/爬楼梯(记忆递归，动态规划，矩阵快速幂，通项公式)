@@ -21,6 +21,27 @@ https://leetcode-cn.com/problems/climbing-stairs/solution/pa-lou-ti-by-leetcode-
 2.  1 阶 + 2 阶
 3.  2 阶 + 1 阶
 
+记忆递归！！！
+class Solution {
+    public int climbStairs(int n) {
+        int memo[] = new int[n+1];
+        return memofunction(n,memo);
+    }
+    public int memofunction(int n, int memo[]){
+        if(memo[n]>0){
+            return memo[n];
+        }
+        if(n==1){
+            memo[n]= 1;
+        }else if(n==2){
+            memo[n]= 2;
+        }else{
+            memo[n] = memofunction(n-1,memo) + memofunction(n-2,memo);
+        }
+        return memo[n];
+    }
+}
+
 方法一：动态规划
 思路和算法
 
