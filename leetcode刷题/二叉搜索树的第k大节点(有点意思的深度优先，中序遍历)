@@ -23,6 +23,8 @@
  1
 输出: 4
 
+差一点点就想到用k来直接标记找到目标节点了
+
 class Solution {
     int res, k;
     public int kthLargest(TreeNode root, int k) {
