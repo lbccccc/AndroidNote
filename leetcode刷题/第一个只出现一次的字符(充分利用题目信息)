@@ -1,0 +1,62 @@
+在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。
+
+示例:
+
+s = "abaccdeff"
+返回 "b"
+
+s = "" 
+返回 " "
+ 
+
+限制：
+
+0 <= s 的长度 <= 50000
+
+
+
+class Solution {
+    public char firstUniqChar(String s) {
+        HashMap<Integer,Character> mymap = new HashMap<>();
+        int length = s.length();
+        for(int i = 0 ;i<length;i++){
+            if(!mymap.containsKey(i)){
+                mymap.put(i,s.charAt(i));
+            }
+        }
+        return ;
+    }
+}
+
+
+
+
+自己第一遍想的时候也是直接想到用hashmap存着，然后遍历。接着去看题解里的高赞大佬回答也是和我差不多的做法，
+但是提交之后发现性能太低了。去看了速度最快的大佬的答案。发现我们都忽略了一个题目给出的已知信息： s 只包含小写字母，
+这个信息也很重要，所以之前的做法没有充分考虑到题目的信息。
+
+
+
+class Solution {
+    public char firstUniqChar(String s) {
+        if(s==null||s.isEmpty()) return ' ';
+        int index=-1;
+        for (char c='a';c<='z';c++){
+            int cur=s.indexOf(c);
+            if(cur!=-1&&cur==s.lastIndexOf(c)){
+                index=(index==-1?cur:Math.min(index,cur));
+            }
+        }
+        return index==-1?' ':s.charAt(index);
+    }
+}
+
+
+
+
+
+
+
+
+
+
