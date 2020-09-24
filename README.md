@@ -96,6 +96,8 @@
    - [LeakCanary和gc](Kotlin/LeakCanary和gc.md)
    
    - [BlockCanary](Kotlin/BlockCanary.md)
+   
+   - [jvm的一点浅显知识](Kotlin/jvm.md)
 
    - [线程间通信的本质和原理以及Android中的多线程](Kotlin/线程间通信的本质和原理以及Android中的多线程.md)
 
