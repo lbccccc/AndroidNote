@@ -1,6 +1,6 @@
 https://blog.csdn.net/u011315960/article/details/82869206
 
-https://blog.csdn.net/napolunyishi/article/details/22722345?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.channel_param
+[资料1]: https://blog.csdn.net/napolunyishi/article/details/22722345?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.channel_param&dep
 
 后端主要使用MVC，因为平台的特殊性，Android根据MVC模式演变出MVP模式，广泛的使用在开发中。
 
@@ -66,7 +66,7 @@ MVVM的优点：
 
 Data Binding可以实现双向的交互，使得视图和控制层之间的耦合程度进一步降低，分离更为彻底，同时减轻了Activity的压力。
 
-# MVP与MVC的区别
+# MVP与MVC的区别（阅读时请不断对比上面的两张图）
 
 1. **Activity职责不同**，Activity在MVP中是View层，在MVC中是Controller层，这是MVC和MVP很主要的一个区别，可以说Android从MVC转向MVP开发也主要是优化Activity的代码，避免Activity的代码臃肿庞大。
 2. **View层不同**，MVC的View层指的是XML布局文件或者是用Java自定义的View，MVP的View层是Activity或者Fragment。使用传统的MVC，其中的View，对应的是各种Layout布局文件，但是这些布局文件中并不像Web端那样强大，能做的事情非常有限。MVP的View层Activity在实际项目中，随着逻辑的复杂度越来越大，Activity臃肿的缺点仍然体现出来了，因为Activity中还是充满了大量与View层无关的代码，比如各种事件的处理派发，就如MVC中的那样View层和Controller代码耦合在一起无法自拔。
@@ -91,13 +91,18 @@ Data Binding可以实现双向的交互，使得视图和控制层之间的耦�
 
 **（2）不同点：**
 **MVP模式：**
-1.View不直接与Model交互，而是通过与Presenter交互来与Model间接交互
-2.Presenter与View的交互是通过接口来进行的，更有利于添加单元测试
-3.通常View与Presenter是一对一的，但复杂的View可能绑定多个Presenter来处理逻辑，业务相似的时候也可以多同个View共享一个Presenter。
-**MVC模式：**
-1.View可以与Model直接交互
-2.Controller是基于行为的，并且可以被多个View共享
-3.Controller可以负责决定显示哪个View
+
+1. View不直接与Model交互，而是通过与Presenter交互来与Model间接交互
+2. Presenter与View的交互是通过接口来进行的，更有利于添加单元测试
+3. 通常View与Presenter是一对一的，但复杂的View可能绑定多个Presenter来处理逻辑，业务相似的时候也可以多同个View共享一个Presenter。
+
+
+
+##### MVC模式
+
+1. View可以与Model直接交互
+2. Controller是基于行为的，并且可以被多个View共享
+3. Controller可以负责决定显示哪个View
 
 
 
