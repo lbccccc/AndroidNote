@@ -1,4 +1,5 @@
 https://blog.csdn.net/u011315960/article/details/82869206
+
 https://blog.csdn.net/napolunyishi/article/details/22722345?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.channel_param
 
 后端主要使用MVC，因为平台的特殊性，Android根据MVC模式演变出MVP模式，广泛的使用在开发中。
