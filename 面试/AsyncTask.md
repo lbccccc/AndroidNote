@@ -33,6 +33,8 @@ https://blog.csdn.net/lingguiqin/article/details/79184356
 - 线程池中的工作线程执行doInBackgroup(Params… params)方法执行异步任务。
 - 当任务状态改变后，工作线程向UI线程发送消息，AsyncTask内部的InternalHandler 响应这些消息，并调用相关的回调函数。
 
+AsyncTask的内部封装了两个线程池(SerialExecutor和THREAD_POOL_EXECUTOR)和一个Handler(InternalHandler)。其中SerialExecutor线程池用于任务的排队，让需要执行的多个耗时任务，按顺序排列，THREAD_POOL_EXECUTOR线程池才真正地执行任务，InternalHandler用于从工作线程切换到主线程。
+
 #### 四、AsyncTask的注意事项
 
 ##### 1、内存泄漏
