@@ -2,9 +2,22 @@ https://blog.csdn.net/pgg_cold/article/details/79392652
 
 
 
+### BroadcastReceiver两种发送方式
+
+广播BroadcastReceiver被分为两种不同的类型：“**普通广播**（Normal broadcasts）”和“**有序广播**（Ordered broadcasts）”。
+
+普通广播是完全异步的，可以在同一时刻（逻辑上）被所有接收者接收到，消息传递的效率比较高，但缺点是：接收者不能将处理结果传递给下一个接收者，并且无法终止广播Intent的传播；
+
+有序广播是按照接收者声明的优先级别（声明在intent-filter元素的android:priority属性中，数越大优先级别越高,取值范围:-1000到1000。也可以调用IntentFilter对象的setPriority()进行设置），被接收者依次接收广播。如：A的级别高于B,B的级别高于C,那么，广播先传给A，再传给B，最后传给C。A得到广播后，可以往广播里存入数据，当广播传给B时,B可以从广播中得到A存入的数据。
+
+**注意** ：**BroadcastReceiver生命周期很短**
+如果需要在onReceiver完成一些耗时操作，应该考虑在Service中开启一个新线程处理耗时操作，**不应该在BroadcastReceiver中开启一个新的线程**，因为BroadcastReceiver生命周期很短，在执行完onReceiver以后就结束，如果开启一个新的线程，可能出现BroadcastRecevier退出以后线程还在，而如果BroadcastReceiver所在的进程结束了，该线程就会被标记为一个空线程。根据Android的内存管理策略，在系统内存紧张的时候，会按照优先级，结束优先级低的线程，而空线程显然优先级最低，这样就可能导致BroadcastReceiver启动的子线程不能完整执行完毕。
+
 AMS：Activity Manager Service ，它是贯穿Android系统组件的核心服务，负责四大组件的启动，运行和调度，应用程序的管理和调度工作；
 
-Binder机制：Binder是Android进程间通信的核心，整体架构采用C/S架构，客户端进程可以获取服务端的代理，并通过相应的方法去进行进程间通信。关于这个Binder机制，会有一篇专门详细介绍它。
+# Binder机制
+
+Binder是Android进程间通信的核心，整体架构采用C/S架构，客户端进程可以获取服务端的代理，并通过相应的方法去进行进程间通信。关于这个Binder机制，会有一篇专门详细介绍它。
 
 观察者模式：观察者模式（有时又被称为模型-视图（View）模式、源-收听者(Listener)模式或从属者模式）是[软件设计模式](https://baike.baidu.com/item/软件设计模式)的一种。在此种模式中，一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来实现事件处理系统。
 
