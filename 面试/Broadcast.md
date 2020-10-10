@@ -1,6 +1,6 @@
 https://blog.csdn.net/pgg_cold/article/details/79392652
 
-
+https://www.jianshu.com/p/ca3d87a4cdf3
 
 ### BroadcastReceiver两种发送方式
 
