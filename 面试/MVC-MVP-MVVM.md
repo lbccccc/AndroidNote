@@ -116,4 +116,16 @@ Data Binding可以实现双向的交互，使得视图和控制层之间的耦�
 2. Presenter，与Controller一样，接收View的命令，对Model进行操作；与Controller不同的是Presenter会反作用于View，Model的变更通知首先被Presenter获得，然后Presenter再去更新View。一个Presenter只对应于一个View。根据Presenter和View对逻辑代码分担的程度不同，这种模式又有两种情况：Passive View和Supervisor Controller。
 3. ViewModel，注意这里的“Model”指的是View的Model，跟上面那个Model不是一回事。所谓View的Model就是包含View的一些数据属性和操作的这么一个东东，这种模式的关键技术就是数据绑定（data binding），View的变化会直接影响ViewModel，ViewModel的变化或者内容也会直接体现在View上。这种模式实际上是框架替应用开发者做了一些工作，开发者只需要较少的代码就能实现比较复杂的交互。
 
+
+
+
+
+
+
+## MVVM简介
+
+https://blog.csdn.net/xx326664162/article/details/50478335?utm_medium=distribute.pc_relevant.none-task-blog-title-2&spm=1001.2101.3001.4242
+
+基本上与 MVP 模式完全一致，MVVM其中的VM是ViewModel的缩写，ViewModel可以理解成是View的数据模型和Presenter的合体，ViewModel和View之间的交互通过Data Binding完成，而Data Binding可以实现双向的交互，View的变动，自动反映在 ViewModel。这就使得视图和控制层之间的耦合程度进一步降低，关注点分离更为彻底，同时减轻了Activity的压力。
+
 2020 10.5 17.06
