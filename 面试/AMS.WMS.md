@@ -45,6 +45,10 @@ Android支持的窗口类型很多，统一可以分为三大类，另外各个�
 - **SystemWindow**
 - **Sub Window**
 
+## WMS设计模式：桥接模式
+
+https://www.jianshu.com/p/028be994677f
+
 # AMS
 
 ## 基础了解
@@ -65,7 +69,8 @@ Android支持的窗口类型很多，统一可以分为三大类，另外各个�
 ### 设计模式
 
 - **代理模式**
-https://www.jianshu.com/p/028be994677f
+  
+  
 
 
 ### 工作流程
