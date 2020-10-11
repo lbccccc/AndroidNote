@@ -21,6 +21,7 @@ https://blog.csdn.net/qq_43377749/article/details/102979418
 
 
 #### 每个 ContentProvider 的操作是在哪个线程中运行的呢?（ 其实我们关心的是 UI 线程和工作线程 ）
+https://blog.csdn.net/static_zh/article/details/82899312
 
 - 比如我们在UI线程调用getContentResolver().query查询数据，而当数据量很大时（或者需要进行较长时间的计算）会不会阻塞UI线程呢？
 - 要分两种情况
