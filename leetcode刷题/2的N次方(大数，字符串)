@@ -1,0 +1,46 @@
+对于一个整数N（512 <= N <= 1024），计算2的N次方并在屏幕显示十进制结果。
+https://www.nowcoder.com/test/question/e9a4919b8848451d9aff81e3cdd133b1?pid=12398771&tid=38606501
+
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            String ans = compute(n);
+            System.out.println(ans);
+        }
+    }
+    
+    private static String compute(int n){
+        String ans = "";
+        if(n == 1) return "2";
+        String temp = compute(n/2);
+        if(n%2==0){
+            ans =  multiply(temp, temp);
+        }else{
+            ans = multiply(multiply(temp, temp), "2");
+        }
+        return ans;
+    }
+    
+    private static String multiply(String str1, String str2){
+        int len1 = str1.length();
+        int len2 = str2.length();
+        int[] ans = new int[len1+len2];
+        for(int i=len1-1; i>=0; i--){
+            for(int j=len2-1; j>=0; j--){
+                int mul = (str1.charAt(i)-'0')*(str2.charAt(j)-'0');
+                int p1 = i+j, p2 = i+j+1;
+                int sum = mul+ans[p2];
+                ans[p1] += sum/10;
+                ans[p2] = sum%10;
+            }
+        }
+        StringBuffer res = new StringBuffer();
+        for(int value:ans) 
+            if(!(res.length() == 0 && value == 0))
+                res.append(value);
+        return (res.length() == 0)? "0": res.toString();
+    }
+}
