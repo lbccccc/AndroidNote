@@ -1,0 +1,66 @@
+如果一个整数只能被1和自己整除,就称这个数是素数。
+如果一个数正着反着都是一样,就称为这个数是回文数。例如:6, 66, 606, 6666
+如果一个数字既是素数也是回文数,就称这个数是回文素数
+牛牛现在给定一个区间[L, R],希望你能求出在这个区间内有多少个回文素数。
+
+输入描述:
+输入包括一行,一行中有两个整数(1 ≤ L ≤ R ≤ 1000)
+
+输出描述:
+输出一个整数,表示区间内回文素数个数。
+
+输入例子1:
+100 150
+
+输出例子1:
+2
+
+
+利用题目信息 输入的数在1到1000，所以只有三位数，比较是不是回文数的话只要比较第一位（除法取整）和最后一位（除10取余）
+
+
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int l = sc.nextInt();
+        int r = sc.nextInt();
+        int result = 0;
+        for (int i = l; i <= r; i++) {
+ 
+            if (!check(i)) {
+                continue;
+            }
+ 
+            if (huiweishu(i)) {
+                result++;
+            }
+        }
+        System.out.print(result);
+    }
+ 
+    private static boolean check(int num) {
+         if(num == 1) return  false;
+        int sqrt = (int) Math.sqrt(num);
+        for (int j = 2; j < sqrt + 1; j++) {
+ 
+            if (num % j == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+ 
+    private static boolean huiweishu(int i) {
+        if(i<10)return true;
+        int a;
+        if (i < 99) {
+            a = i / 10;
+        } else {
+            a = i / 100;
+        }
+        return a == i % 10;
+    }
+}
+
+2020 10.15 22.48
