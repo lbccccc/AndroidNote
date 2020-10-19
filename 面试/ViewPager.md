@@ -1,0 +1,29 @@
+https://www.jianshu.com/p/e5abbda4a71c
+
+https://blog.csdn.net/lixiaolu1994/article/details/83539353
+
+1.ViewPager的简介和作用
+ViewPager是android扩展包v4包中的类，这个类可以让用户左右切换当前的view
+1）ViewPager类直接继承了ViewGroup类，所有它是一个容器类，可以在其中添加其他的view类。
+2）ViewPager类需要一个PagerAdapter适配器类给它提供数据。
+3）ViewPager经常和Fragment一起使用，并且提供了专门的FragmentPagerAdapter和FragmentStatePagerAdapter类供Fragment中的ViewPager使用。
+
+2.ViewPager的适配器
+简介中提到了PagerAdapter，和ListView等控件使用一样,需要ViewPager设置PagerAdapter来完成页面和数据的绑定，这个PagerAdapter是一个基类适配器，我们经常用它来实现app引导图，它的子类有FragmentPagerAdapter和FragmentStatePagerAdapter,这两个子类适配器用于和Fragment一起使用，在安卓应用中它们就像listview一样出现的频繁。
+
+PagerAdapter是基类适配器是一个通用的ViewPager适配器，相比PagerAdapter，FragmentPagerAdapter和FragmentStatePagerAdapter更专注于每一页是Fragment的情况，而这两个子类适配器使用情况也是有区别的。FragmentPagerAdapter适用于页面比较少的情况，FragmentStatePagerAdapter适用于页面比较多的情况。
+
+从源码中我们可以看出FragmentStatePagerAdapter中fragment实例在destroyItem的时候被真正释放，所以FragmentStatePagerAdapter省内存。FragmentPagerAdapter中的fragment实例在destroyItem的时候并没有真正释放fragment对象只是detach，所以FragmentPagerAdapter消耗更多的内存，带来的好处就是效率更高一些。所以得出这样的结论：FragmentPagerAdapter适用于页面比较少的情况，FragmentStatePagerAdapter适用于页面比较多的情况，因此不同的场合选择合适的适配器才是正确的做法
+
+
+
+懒加载
+
+https://www.jianshu.com/p/238fc030406d
+
+
+主要的方法是Fragment中的setUserVisibleHint()，此方法会在onCreateView(）之前执行，当viewPager中fragment改变可见状态时也会调用,当fragment 从可见到不见，或者从不可见切换到可见，都会调用此方法，使用getUserVisibleHint() 可以返回fragment是否可见状态。
+在BaseLazyFragment中需要在onActivityCreated()及setUserVisibleHint()方法中都调了一次lazyLoad() 方法。如果仅仅在setUserVisibleHint()调用lazyLoad()，当默认首页首先加载时会导致viewPager的首页第一次展示时没有数据显示，切换一下才会有数据。因为首页fragment的setUserVisible()在onActivityCreated() 之前调用，此时isPrepared为false 导致首页fragment 没能调用onLazyLoad()方法加载数据。
+
+
+2020 10.19 22.06
