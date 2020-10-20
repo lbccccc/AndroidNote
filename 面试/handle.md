@@ -1,5 +1,7 @@
 https://www.jianshu.com/p/7a64bd724bc6
 
+https://blog.csdn.net/ly502541243/article/details/87475229
+
 要理解handler的实现原理，其实最重要的是理解`Looper`的实现原理，`Looper`才是实现`handler`机制的核心。任何一个`handler`在使用`sendMessage`或者`post`时候，都是先构造一个`Message`，并把自己放到`message中`，然后把`Message`放到对应的`Looper`的`MessageQueue`，`Looper`通过控制`MessageQueue`来获取`message`执行其中的`handler`或者`runnable`。 要在当前线程中执行`handler`指定操作，必须要先看当前线程中有没有`looper`，如果有`looper`，`handler`就会通过`sendMessage`，或者`post`先构造一个`message`，然后把`message`放到当前线程的`looper`中，`looper`会在当前线程中循环取出`message`执行，如果没有`looper`，就要通过`looper.prepare()`方法在当前线程中构建一个`looper`，然后主动执行`looper.loop()`来实现循环。
 
 梳理一下其实最简单的就下面四条：
