@@ -7,6 +7,8 @@ https://www.zhihu.com/question/34873227/answer/518086565（这个最屌，直接
 看这个
 https://zhuanlan.zhihu.com/p/79350395
 
+https://blog.csdn.net/qq_38218238/article/details/82425974
+
 什么是DNS解析？当用户输入一个网址并按下回车键的时候，浏览器得到了一个域名。而在实际通信过程中，我们需要的是一个IP地址。因此我们需要先把域名转换成相应的IP地址，这个过程称作DNS解析。
 https://www.zhihu.com/question/23042131
 
