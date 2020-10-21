@@ -1,5 +1,7 @@
 https://blog.csdn.net/g291976422/article/details/88984859
 
+https://www.zhihu.com/question/34873227/answer/518086565（这个最屌，直接看这个就行了）
+
 #### DNS解析
 
 看这个
