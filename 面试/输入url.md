@@ -31,3 +31,6 @@ ssl四次握手（https://www.pianshen.com/article/71241175766/）
 步骤 8： 服务器同样发送 Change Cipher Spec 报文。
 
 步骤 9： 服务器同样发送 Finished 报文。
+
+
+2020 10.21 21.54
