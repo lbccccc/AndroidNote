@@ -59,13 +59,19 @@ https://blog.csdn.net/lingguiqin/article/details/79184356
 - Android 1.6~ 2.3 ,默认采用并行执行任务；
 - Android 3.0，默认采用串行执行任务，如果需要改为并行，可以调用AsyncTask的executeOnExecutor()来执行任务即可。
 
-#### 5、AsyncTask的使用限制
+#### 5、AsyncTask的使用限制https://www.jianshu.com/p/9b0afe6e40f9
 
-- AsyncTask的对象必须在主线程中创建；
-- execute 方法必须在UI线程调用；
-- 不要在程序中手动调用 onPreExecute、onPostExecute、 doInBackground、onProgressUpdate方法；
-- 一个AsyncTask对象只能调用一次excute()方法，执行一次，否则会报异常。
+- 必须在主线程中加载，不然在API 16以下不可用，但目前来说，大部分app最低版本也到16了，这个缺点可以忽略了
 
+  内存泄露
+   在`Activity`中使用非静态匿名内部`AsyncTask`类，会持有外部类的隐式引用。由于`AsyncTask`的生命周期可能比Activity的长，当Activity进行销毁`AsyncTask`还在执行时，由于`AsyncTask`持有Activity的引用，导致`Activity`对象无法回收，进而产生内存泄露。改为静态内部类
 
+  ```
+  Activity` 已被销毁，`doInBackground`还没有执行完，执行完后再执行 `onPostResult`, 导致产生异常 ，记得在`Activity`的 `onDestroy` 方法中调 `cancel`方法取消 `AsyncTask
+  ```
+
+  AsyncTask不适合特别耗时的任务，原因就是上述两点，1.内存泄漏 2.生命周期没有跟`Activity`同步，建议用线程池
+
+  每个`AsyncTask`实例只能执行一次。
 
 2020 10.7 17.12
