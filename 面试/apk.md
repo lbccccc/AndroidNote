@@ -34,7 +34,36 @@ https://www.jianshu.com/p/d607dbb09bd6
 
 ##### 处理PNG文件
 
+### Dalvik 和 ART
 
+- Dalvik
+
+- - 谷歌设计专用于 Android 平台的 Java 虚拟机，可直接运行 .dex 文件，适合内存和处理速度有限的系统
+  - JVM 指令集是基于栈的；Dalvik 指令集是基于寄存器的，代码执行效率更优
+
+
+
+- ART
+
+- - Dalvik 每次运行都要将字节码转换成机器码；ART 在应用安装时就会转换成机器码，执行速度更快
+  - ART 存储机器码占用空间更大，空间换时间
+
+
+
+### APK 打包流程
+
+1.aapt 打包资源文件生成 R.java 文件；aidl 生成 java 文件
+2.将 java 文件编译为 class 文件
+3.将工程及第三方的 class 文件转换成 dex 文件
+4.将 dex 文件、so、编译过的资源、原始资源等打包成 apk 文件
+5.签名
+6.资源文件对齐，减少运行时内存
+
+### App 安装过程
+
+- 首先要解压 APK，资源、so等放到应用目录
+- Dalvik 会将 dex 处理成 ODEX ；ART 会将 dex 处理成 OAT；
+- OAT 包含 dex 和安装时编译的机器码
 
 
 
