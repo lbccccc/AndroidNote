@@ -1,4 +1,5 @@
 https://www.jianshu.com/p/57ba91db3705
+
 ### 为什么使用binder
 
 在上面这些可供选择的方式中，Android使用得最多也最被认可的还是Binder机制。
@@ -48,3 +49,50 @@ Binder的通信模型有4个角色：Binder Client、Binder Server、Binder Driv
 好了，一个通信过程就完成了。我们发现，其实Binder驱动就是一个中转。
 
 2020 10.7 16.51
+
+# binder机制
+
+https://www.zhihu.com/question/39440766/answer/89210950
+
+\1. **管道：**在创建时分配一个page大小的内存，缓存区大小比较有限；
+\2. **消息队列**：信息复制两次，额外的CPU消耗；不合适频繁或信息量大的通信；
+\3. **共享内存**：无须复制，共享缓冲区直接付附加到进程虚拟地址空间，速度快；但进程间的同步问题操作系统无法实现，必须各进程利用同步工具解决；
+\4. **套接字**：作为更通用的接口，传输效率低，主要用于不通机器或跨网络的通信；
+\5. **信号量**：常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。
+\6. **信号**: 不适用于信息交换，更适用于进程中断控制，比如非法内存访问，杀死某个进程等；
+
+
+
+，每种Linux的IPC机制都有存在的价值，同时在Android系统中也依然采用了大量Linux现有的IPC机制，根据每类IPC的原理特性，因时制宜，不同场景特性往往会采用其下最适宜的。比如在**Android OS中的Zygote进程的IPC采用的是Socket（套接字）机制**，Android中的**Kill Process采用的signal（信号）机制**等等。而**Binder更多则用在system_server进程与上层App层的IPC交互**。
+
+# Zygote进程
+
+https://www.jianshu.com/p/3dbe46439359
+
+Zygote进程, 一个在Android系统中扮演重要角色的进程. 我们知道Android系统中的两个重要服务PackageManagerService和ActivityManagerService, 都是由SystemServer进程启动的, 而这个SystemServer进程本身是Zygote进程在启动的过程中fork出来的. 这样一来, 想必我们就知道Zygote进程在Android系统中的重要地位了.
+
+#### PackageManagerService
+
+PackageManagerService在Android中的非常重要，主要负责的功能如下：
+ 1.解析AndroidManifest.xml，主要包括AndroidManifest中节点信息的解析和target-name的分析和提炼，这部分和ActivityManagerService和WindowManagerService都有紧急的联系。关于AndroidManifest.xml中的属性设置，会单独拎出来讲解，本文不扩展讲解。
+ 2.扫描本地文件，主要针对apk，主要是系统应用、本地安装应用等等。这部分会在下面仔细讲解。
+ 3.管理本地apk，主要包括安装、删除等等
+
+什么是Zygote? Zygote是Android系统中特有的进程, 不过说白了也只是名字特有而已, 言外之意, 不多说了. 总之我们先搞清楚一件事, Zygote一个最主要的作用, 就是加快Android应用程序启动和运行速度. 
+
+为什么这么说? 这就要知道Zygote进程在启动时做了什么. Zygote进程运行时, 会初始化Dalvik虚拟机, 并运行它. Android的应用程序是由Java编写的, 它们不能直接运行在Linux上, 只能运行在Dalvik虚拟机中. 并且, 每个应用程序都运行在各自的虚拟机中, 应用程序每次运行都要重新初始化并启动虚拟机, 这个过程会消耗相当长时间, 是拖慢应用程序的原因之一. 因此, 在Android中, 应用程序运行前, 通过Zygote进程共享已运行的虚拟机的代码与内存信息, 缩短应用程序运行所耗费的时间. 也就是说, Zygote进程会事先将应用程序要使用的Android Framework中的类与资源加载到内存中, 并组织形成所用资源的链接信息. 这样, 新运行的Android应用程序在使用所需资源时不必每次形成资源的链接信息, 这样就大大提升了程序的运行时间.
+
+
+
+# 总结:
+
+1. 系统启动时init进程会创建Zygote进程，Zygote进程负责后续Android应用程序框架层的其它进程的创建和启动工作。
+2. Zygote进程会首先创建一个SystemServer进程，SystemServer进程负责启动系统的关键服务，如包管理服务PackageManagerService和应用程序组件管理服务ActivityManagerService。
+3. 
+4. 当我们需要启动一个Android应用程序时，ActivityManagerService会通过Socket进程间通信机制，通知Zygote进程为这个应用程序创建一个新的进程。
+
+
+
+
+
+2020 10.25 10.42
