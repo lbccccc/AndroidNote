@@ -69,24 +69,21 @@ https://www.jianshu.com/p/028be994677f
 ### 设计模式
 
 - **代理模式**
-  
-  
 
 
-### 工作流程
 
-AMS的工作流程，其实就是Activity的启动和调度的过程，所有的启动方式，最终都是通过Binder机制的Client端，调用Server端的AMS的`startActivityXXX()`系列方法。所以可见，工作流程又包括Client端和Server端两个。
+# 启动一个APP
 
-#### Client端流程
+https://zhuanlan.zhihu.com/p/86266649
 
-- Launcher主线程捕获`onClick()`点击事件后，调用`Launcher.startActivitySafely()`方法。`Launcher.startActivitySafely()`内部调用了Launcher.startActivity()方法，`Launcher.startActivity()`内部调用了Launcher的父类Activity的`startActivity()`方法。
-- `Activity.startActivity()`调用`Activity.startActivityForResult()`方法，传入该方法的requestCode参数若为-1，则表示Activity启动成功后，不需要执行`Launcher.onActivityResult()`方法处理返回结果。
-- 启动Activity需要与系统ActivityManagerService交互，必须纳入Instrumentation的监控，因此需要将启动请求转交instrumentation，即调用`Instrumentation.execStartActivity()`方法。
-- `Instrumentation.execStartActivity()`首先通过ActivityMonitor检查启动请求，然后调用`ActivityManagerNative.getDefault()`得到ActivityManagerProxy代理对象，进而调用该代理对象的`startActivity()`方法。
-- ActivityManagerProxy是ActivityManagerService的代理对象，因此其内部存储的是BinderProxy，调用`ActivityManagerProxy.startActivity()`实质是调用`BinderProxy.transact()`向Binder驱动发送START_ACTIVITY_TRANSACTION命令。Binder驱动将处理逻辑从Launcher所在进程切换到ActivityManagerService所在进程。
+![img](https://pic2.zhimg.com/80/v2-8419426dda4cdc6bd962237e898f7029_720w.jpg)
 
-#### Server端流程
-
-启动Activity的请求从Client端传递给Server端后，便进入了启动应用的七个阶段，这里也是整理出具体流程，
+1. 点击桌面App图标，Launcher进程采用Binder IPC向system_server进程发起startActivity请求；
+2. system_server进程接收到请求后，向zygote进程发送创建进程的请求；
+3. Zygote进程fork出新的子进程，即App进程；
+4. App进程，通过Binder IPC向sytem_server进程发起attachApplication请求；
+5. system_server进程在收到请求后，进行一系列准备工作后，再通过binder IPC向App进程发送scheduleLaunchActivity请求；
+6. App进程的binder线程（ApplicationThread）在收到请求后，通过handler向主线程发送LAUNCH_ACTIVITY消息；
+7. 主线程在收到Message后，通过发射机制创建目标Activity，并回调Activity.onCreate()等方法。 到此，App便正式启动，开始进入Activity生命周期，执行完onCreate/onStart/onResume方法，UI渲染结束后便可以看到App的主界面。
 
  2020 10.9  12.46
