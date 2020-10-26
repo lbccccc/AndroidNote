@@ -17,10 +17,18 @@ UI controller 比如 Activity 、Fragment 是设计用来渲染展示数据、�
 
 比如在一个 Activity 里有多个fragment，这fragment 之间需要做某些交互。我之前的做法是接口回调，需要统一在 Activity 里管理，并且不可避免的 fragment 之间还得互相持有对方的引用。仔细想想就知道这是很翔的一件事，耦合度高不说，还需要大量的容错判断（比如对方的 fragment 是否还活着）。
 
-
 仔细体会下这样的好处会发现：
 1、Activity 不需要做任何事，甚至不知道这次交互，完美解耦。
 2、Fragment 只需要 与ViewModel交互，不需要知道对方 Fragment 的状态甚至是否存在，更不需要持有其引用。所有当对方 Fragment 销毁时，不影响本身任何工作。
 3、Fragment 生命周期互不影响，甚至 fragment 替换成其他的 也不影响这个系统的运作。
+
+
+
+https://zhuanlan.zhihu.com/p/110772274
+
+- Activity(Fragment) 的 ViewModel 都存储在 ViewModelStore 中，每个 Activity(Fragment) 都会拥有一个 ViewModelStore 实例
+- ViewModelProvider 负责向使用者提供访问某个 ViewModel 的接口，其内部会持有当前 Activity(Fragment) 的 ViewModelStore，然后将操作委托给 ViewModelStore 完成
+- ViewModel 能在 Activity(Fragment) 在由于配置重建时恢复数据的实现原理是：Activity(指 support library 中的 ComponentActivity) 会将 ViewModelStore 在 Activity(Fragment) 重建之前交给 ActivityThread 中的 ActivityClientRecord 持有，待 Activity(Fragment) 重建完成之后，再从 ActivityClientRecord 中获取 ViewModelStore
+- 如果应用的进程位于后台时，由于系统内存不足被销毁了。即使利用 ViewModel 的也不能在 Activity(Fragment) 重建时恢复数据。因为存储 ViewModel 的 ViewModelStore 是交给 ActivityThread 中的 ActivityClientRecord 暂存的，进程被回收了，ActivityThread 也就会被回收，ViewModelStore 也就被回收了，ViewModel 自然不复存在了
 
 2020 10.19 22.18
