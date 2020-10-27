@@ -371,6 +371,8 @@ https://blog.csdn.net/ly502541243/article/details/87475229
 
 ## **7、handler机制中如何确保Looper的唯一性？**
 
+
+
 `Looper`是保存在线程的`ThreadLocal`里面的，使用`Handler`的时候要调用`Looper.prepare()`来创建一个`Looper`并放在当前的线程的`ThreadLocal`里面。
 
 
@@ -389,5 +391,11 @@ https://blog.csdn.net/ly502541243/article/details/87475229
 ## **8、Handler 是如何能够线程切换，发送Message的？**
 
 `handler`的执行跟创建`handler`的线程无关，跟创建`looper`的线程相关，加入在子线程中创建一个`Handler`，但是`Handler`相关的`Looper`是主线程的，这样，如果`handler`执行`post`一个`runnable`，或者`sendMessage`，最终的`handle Message`都是在主线程中执行的。
+
+## 9、主线程的死循环一直运行是不是特别消耗CPU资源呢？
+
+https://www.cnblogs.com/muouren/p/11706457.html
+
+其实不然，这里就涉及到**Linux pipe/epoll机制**，简单说就是在主线程的MessageQueue没有消息时，便阻塞在loop的queue.next()中的nativePollOnce()方法里，详情见[Android消息机制1-Handler(Java层)](https://link.zhihu.com/?target=http://www.yuanhh.com/2015/12/26/handler-message-framework/%23next)，此时主线程会释放CPU资源进入休眠状态，直到下个消息到达或者有事务发生，通过往pipe管道写端写入数据来唤醒主线程工作。这里采用的epoll机制，是一种IO多路复用机制，可以同时监控多个描述符，当某个描述符就绪(读或写就绪)，则立刻通知相应程序进行读或写操作，本质同步I/O，即读写是阻塞的。 **所以说，主线程大多数时候都是处于休眠状态，并不会消耗大量CPU资源。**
 
 2020 10.7 23.38
