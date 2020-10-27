@@ -28,6 +28,8 @@ public void set(T value) {
 
 大家可以发现set的源码很简单，主要就是ThreadLocalMap我们需要关注一下，而ThreadLocalMap呢是当前线程Thread一个叫threadLocals的变量中获取的。
 
+为什么需要数组呢？没有了链表怎么解决Hash冲突呢？
+用数组是因为，我们开发过程中可以一个线程可以有多个TreadLocal来存放不同类型的对象的，但是他们都将放到你当前线程的ThreadLocalMap里，所以肯定要数组来存。
 
 
 2020 10.24 23.35
