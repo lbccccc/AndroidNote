@@ -40,6 +40,6 @@ https://blog.csdn.net/static_zh/article/details/82899312
 - 一个应用进程有 `16` 个 `Binder` 线程去和远程服务进行交互，而每个线程可占用的缓存空间是 `128KB` 这样，超过会报异常。
 - `ContentResolver` 虽然是通过 `Binder` 进程间通信机制打通了应用程序之间共享数据的通道，但 `ContentProvider` 组件在不同应用程序之间传输数据是基于匿名共享内存机制来实现的。
 
-
+https://www.jianshu.com/p/380231307070
 
 2020 10.7 21.11
