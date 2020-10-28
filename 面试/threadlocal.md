@@ -32,4 +32,27 @@ public void set(T value) {
 用数组是因为，我们开发过程中可以一个线程可以有多个TreadLocal来存放不同类型的对象的，但是他们都将放到你当前线程的ThreadLocalMap里，所以肯定要数组来存。
 
 
+
+# ThreadLocalMap初始化及扩容
+
+https://blog.csdn.net/u010002184/article/details/82227795
+
+扩容经过以下步骤：
+1 private T setInitialValue() { //源码
+2 map.set(this, value);//源码
+3 if (!cleanSomeSlots(i, sz) && sz >= threshold)//源码，cleanSomeSlots使用expungeStaleEntry()，提前移走过期Entry
+4 rehash();//源码
+5 expungeStaleEntries();//源码，使用expungeStaleEntry()
+6 if (size >= threshold - threshold / 4)//源码，10-10/4=8，在清理过期Entery后如果长度大于等于8，则进行扩容，
+7 resize();//源码， int newLen = oldLen * 2;如果长度是8，则会扩容到16，到原来的2倍
+8 setThreshold(newLen);//源码，新的门限是新长度的2/3
+
+2/3 * 3/4 = 1/2 ,即长度大于等于原长度的1/2时，会扩容到原来的2倍
+
+在清理过期Entery后如果长度大于等于原长度的2/3时会进行rehash，再次清理过期Entery后如果长度大于等于原长度的1/2时会进行扩容。
+
+过期Entry的意思就是ThreadLocal<HashMap> totalMap 该变量为空，里面没有内容了，
+
+
+
 2020 10.24 23.35
